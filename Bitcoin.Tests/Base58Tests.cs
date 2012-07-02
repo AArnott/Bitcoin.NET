@@ -10,18 +10,10 @@
 
 	[TestFixture]
 	public class Base58Tests {
-		[Test, Ignore("BigInteger encodes byte arrays differently?")]
-		public void EncodeBigIntegerOriginal() {
-			Assert.That(Base58.Encode(new BigInteger(3471844090L).ToByteArray()), Is.EqualTo("16Ho7Hs"));
-		}
-
-		/// <summary>
-		/// Derived from <see cref="EncodeBigIntegerOriginal"/> but with the expectation changed
-		/// so that the test passes in .NET
-		/// </summary>
 		[Test]
 		public void EncodeBigInteger() {
-			Assert.That(Base58.Encode(new BigInteger(3471844090L).ToByteArray()), Is.EqualTo("VDogyWP"));
+			var buffer = new BigInteger(3471844090L).ToByteArray().ReverseOrder();
+			Assert.That(Base58.Encode(buffer), Is.EqualTo("16Ho7Hs"));
 		}
 
 		[Test]

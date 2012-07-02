@@ -6,7 +6,7 @@
 	using System.Text;
 	using System.Threading.Tasks;
 
-	internal static class Utils {
+	public static class Utils {
 		/// <summary>
 		/// Calculates the SHA-256 hash of the given byte range, and then hashes the resulting hash again. This is
 		/// standard procedure in BitCoin. The resulting hash is in big endian form.
@@ -31,21 +31,43 @@
 			}
 		}
 
-		internal static bool ArraysEqual(byte[] array1, byte[] array2) {
+		internal static bool ArraysEqual(IReadOnlyList<byte> array1, IReadOnlyList<byte> array2) {
 			Requires.NotNull(array1, "array1");
 			Requires.NotNull(array2, "array2");
 
-			if (array1.Length != array2.Length) {
+			if (array1.Count != array2.Count) {
 				return false;
 			}
 
-			for (int i = 0; i < array1.Length; i++) {
+			for (int i = 0; i < array1.Count; i++) {
 				if (array1[i] != array2[i]) {
 					return false;
 				}
 			}
 
 			return true;
+		}
+
+		internal static byte[] MutableCopy(this IReadOnlyList<byte> readOnlyBuffer) {
+			Requires.NotNull(readOnlyBuffer, "readOnlyBuffer");
+
+			var buffer = new byte[readOnlyBuffer.Count];
+			for (int i = 0; i < readOnlyBuffer.Count; i++) {
+				buffer[i] = readOnlyBuffer[i];
+			}
+
+			return buffer;
+		}
+
+		public static byte[] ReverseOrder(this IReadOnlyList<byte> input) {
+			Requires.NotNull(input, "input");
+
+			var buffer = new byte[input.Count];
+			for (int i = 0; i < input.Count; i++) {
+				buffer[input.Count - i - 1] = input[i];
+			}
+
+			return buffer;
 		}
 	}
 }

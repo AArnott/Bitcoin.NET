@@ -38,8 +38,10 @@
 		/// <summary>
 		/// Encodes an arbitrary buffer into a base58 encoded string.
 		/// </summary>
-		public static string Encode(byte[] buffer) {
-			Requires.NotNull(buffer, "buffer");
+		public static string Encode(IReadOnlyList<byte> input) {
+			Requires.NotNull(input, "input");
+
+			var buffer = input.MutableCopy();
 
 			// The actual encoding.
 			char[] temp = new char[buffer.Length * 2];
@@ -149,11 +151,11 @@
 			return bytes;
 		}
 
-		private static int LeadingZerosCount(byte[] buffer) {
+		private static int LeadingZerosCount(IReadOnlyList<byte> buffer) {
 			Requires.NotNull(buffer, "buffer");
 
 			int leadingZeros = 0;
-			for (leadingZeros = 0; leadingZeros < buffer.Length && buffer[leadingZeros] == 0; leadingZeros++) ;
+			for (leadingZeros = 0; leadingZeros < buffer.Count && buffer[leadingZeros] == 0; leadingZeros++) ;
 			return leadingZeros;
 		}
 
