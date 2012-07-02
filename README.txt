@@ -1,0 +1,1 @@
+This is a port of bitcoinj (https://code.google.com/p/bitcoinj/)
