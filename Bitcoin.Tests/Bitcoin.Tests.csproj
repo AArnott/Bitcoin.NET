@@ -48,6 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressTests.cs" />
     <Compile Include="Base58Tests.cs" />
     <Compile Include="HexTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

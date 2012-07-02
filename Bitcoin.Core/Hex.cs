@@ -17,10 +17,10 @@
 			return bytes;
 		}
 
-		public static string Encode(byte[] buffer) {
+		public static string Encode(IReadOnlyList<byte> buffer) {
 			Requires.NotNull(buffer, "buffer");
 
-			var hex = new StringBuilder(buffer.Length * 2);
+			var hex = new StringBuilder(buffer.Count * 2);
 			foreach (byte b in buffer) {
 				hex.AppendFormat("{0:x2}", b);
 			}

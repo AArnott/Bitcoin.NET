@@ -5,6 +5,26 @@
 	using System.Text;
 	using System.Threading.Tasks;
 
+	/// <summary>
+	/// A Bitcoin address is derived from an elliptic curve public key and a set of network parameters.
+	/// It has several possible representations:<p>
+	/// </summary>
+	/// <remarks>
+	/// <ol>
+	/// <li>The raw public key bytes themselves.
+	/// <li>RIPEMD160 hash of the public key bytes.
+	/// <li>A base58 encoded "human form" that includes a version and check code, to guard against typos.
+	/// </ol>
+	/// 
+	/// <para>The most common written form is the latter, and there may be several different types of address with the meaning
+	/// determined by the version code.</para>
+	/// 
+	/// <para>One may question whether the base58 form is really an improvement over the hash160 form, given
+	/// they are both very unfriendly for typists. More useful representations might include qrcodes
+	/// and identicons.</para>
+	/// 
+	/// <para>Note that an address is specific to a network because the first byte is a discriminator value.</para>
+	/// </remarks>
 	public class Address : VersionedChecksummedBytes {
 		/**
 		* An address is a RIPEMD160 hash of a public key, therefore is always 160 bits or 20 bytes.
