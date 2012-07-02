@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin", "Bitcoin\Bitcoin.csproj", "{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.Tests", "Bitcoin.Tests\Bitcoin.Tests.csproj", "{E586FFE2-8C07-4F78-95B4-559EB8105EE7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A2A7B634-82B2-43CD-BE75-3DA4BA726478}"
@@ -12,20 +10,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A2A7B6
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitcoin.Core", "Bitcoin.Core\Bitcoin.Core.csproj", "{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E586FFE2-8C07-4F78-95B4-559EB8105EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E586FFE2-8C07-4F78-95B4-559EB8105EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E586FFE2-8C07-4F78-95B4-559EB8105EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E586FFE2-8C07-4F78-95B4-559EB8105EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336D45AE-575E-4FCE-B3FF-E9CD2081EACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
