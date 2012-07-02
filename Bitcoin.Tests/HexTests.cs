@@ -31,5 +31,19 @@
 		public void HexDecodeNullInput() {
 			Assert.Throws<ArgumentNullException>(() => Hex.Decode(null));
 		}
+
+		[Fact]
+		public void HexEncodeEmpty() {
+			var buffer = new byte[0];
+			string hex = Hex.Encode(buffer);
+			Assert.Equal(String.Empty, hex);
+		}
+
+		[Fact]
+		public void HexDecodeEmpty() {
+			var expected = new byte[0];
+			byte[] actual = Hex.Decode(String.Empty);
+			Assert.Equal(expected, actual);
+		}
 	}
 }
