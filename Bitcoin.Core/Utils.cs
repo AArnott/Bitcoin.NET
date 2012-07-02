@@ -48,6 +48,26 @@
 			return true;
 		}
 
+		internal static int GetArrayHashCode(IReadOnlyList<byte> array) {
+			Requires.NotNull(array, "array");
+
+			// TODO: code here
+			return 0;
+		}
+
+		internal static void CopyTo(this IReadOnlyList<byte> sourceBuffer, int sourceIndex, byte[] destinationBuffer, int destinationIndex, int length) {
+			Requires.NotNull(sourceBuffer, "sourceBuffer");
+			Requires.InRange(sourceIndex >= 0 && sourceIndex < sourceBuffer.Count, "sourceIndex");
+			Requires.NotNull(destinationBuffer, "destinationBuffer");
+			Requires.InRange(destinationIndex >= 0 && destinationIndex < destinationBuffer.Length, "destinationIndex");
+			Requires.InRange(destinationIndex + length < destinationBuffer.Length, "length");
+			Requires.InRange(sourceIndex + length < sourceBuffer.Count, "length");
+
+			while (length-- > 0) {
+				destinationBuffer[destinationIndex++] = sourceBuffer[sourceIndex++];
+			}
+		}
+
 		internal static byte[] MutableCopy(this IReadOnlyList<byte> readOnlyBuffer) {
 			Requires.NotNull(readOnlyBuffer, "readOnlyBuffer");
 
@@ -68,6 +88,10 @@
 			}
 
 			return buffer;
+		}
+
+		internal static System.Numerics.BigInteger decodeCompactBits(long p) {
+			throw new NotImplementedException();
 		}
 	}
 }
